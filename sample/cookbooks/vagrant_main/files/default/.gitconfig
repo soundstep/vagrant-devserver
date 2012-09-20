@@ -1,0 +1,50 @@
+[user]
+	name = Romuald Quantin
+	email = romu@soundstep.com
+[color]
+	ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	trustExitCode = false
+	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+[mergetool]
+	keepBackup = false
+[apply]
+	whitespace = nowarn
+[core]
+	excludesfile = /Users/romualdquantin/.gitignore
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	dc = diff --cached
+	lg = log -p
+	cia = commit -a
+	brd = branch -d
+	cob = checkout -b
+	com = checkout master
+	mg = merge
+	ciaa = commit -a --amend
+	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	bl = blame
+	bll = blame -L
