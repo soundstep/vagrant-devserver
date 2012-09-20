@@ -1,4 +1,26 @@
 <VirtualHost *:80>
-	DocumentRoot <%=node[:vagrant][:directory]%>/public
-	RewriteEngine On
+  ServerName application
+  DocumentRoot /vagrant/public
+  RewriteEngine On
+  
+  <Directory /vagrant/public/>
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+  
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+
+  LogLevel info
+  ErrorLog /var/log/apache-application-error.log
+  CustomLog /var/log/apache-application-access.log combined
+
+  RewriteEngine On
+  RewriteLog /var/log/apache-application-rewrite.log
+  RewriteLogLevel 0
+
 </VirtualHost>
