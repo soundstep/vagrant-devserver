@@ -1,9 +1,9 @@
 <VirtualHost *:80>
-  ServerName application
-  DocumentRoot /vagrant/public
+  ServerName localhost
+  DocumentRoot /vagrant
   RewriteEngine On
   
-  <Directory /vagrant/public/>
+  <Directory /vagrant>
     Options FollowSymLinks
     AllowOverride None
     Order allow,deny
@@ -16,11 +16,11 @@
   </Directory>
 
   LogLevel info
-  ErrorLog /var/log/apache-application-error.log
-  CustomLog /var/log/apache-application-access.log combined
+  ErrorLog /var/log/apache-localhost-error.log
+  CustomLog /var/log/apache-localhost-access.log combined
 
   RewriteEngine On
-  RewriteLog /var/log/apache-application-rewrite.log
+  RewriteLog /var/log/apache-localhost-rewrite.log
   RewriteLogLevel 0
 
 </VirtualHost>
